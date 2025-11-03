@@ -120,12 +120,6 @@ if __name__ == "__main__":
     elapsed = time.perf_counter() - start
     print(f"Elapsed time: {elapsed:.6f} seconds")
 
-    print("Sorting descending list with quick sort...")
-    start = time.perf_counter()
-    sorted_desc_quick = quick_sort(list_descending)
-    elapsed = time.perf_counter() - start
-    print(f"Elapsed time: {elapsed:.6f} seconds")
-
     print("Sorting random list with merge sort...")
     start = time.perf_counter()
     sorted_rand_merge = merge_sort(list_random)
