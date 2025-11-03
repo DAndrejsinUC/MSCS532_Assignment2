@@ -1,4 +1,5 @@
 import random
+import time
 from typing import List
 
 def merge_sort(arr: List[int]) -> List[int]:
@@ -90,17 +91,49 @@ def generate_number_list(n: int, list_type: str) -> list:
     else:  # random
         return random.sample(range(1, n * 2), n)  # Using n*2 to have a wider range of numbers
 
-# Test the function
-def test_number_list():
-    print("Testing with n=5:")
-    print("\nAscending order:")
-    print(generate_number_list(5, 'ascending'))
-    
-    print("\nDescending order:")
-    print(generate_number_list(5, 'descending'))
-    
-    print("\nRandom order:")
-    print(generate_number_list(5, 'random'))
-
 if __name__ == "__main__":
-    test_number_list()
+    list_ascending = generate_number_list(1000000, 'ascending')
+    list_descending = generate_number_list(1000000, 'descending')
+    list_random = generate_number_list(1000000, 'random')
+
+    print("Sorting ascending list with merge sort...")
+    start = time.perf_counter()
+    sorted_asc_merge = merge_sort(list_ascending)
+    elapsed = time.perf_counter() - start
+    print(f"Elapsed time: {elapsed:.6f} seconds")
+
+    print("Sorting ascending list with quick sort...")
+    start = time.perf_counter()
+    sorted_asc_quick = quick_sort(list_ascending)
+    elapsed = time.perf_counter() - start
+    print(f"Elapsed time: {elapsed:.6f} seconds")
+    
+    print("Sorting descending list with merge sort...")
+    start = time.perf_counter()
+    sorted_desc_merge = merge_sort(list_descending)
+    elapsed = time.perf_counter() - start
+    print(f"Elapsed time: {elapsed:.6f} seconds")
+
+    print("Sorting descending list with quick sort...")
+    start = time.perf_counter()
+    sorted_desc_quick = quick_sort(list_descending)
+    elapsed = time.perf_counter() - start
+    print(f"Elapsed time: {elapsed:.6f} seconds")
+
+    print("Sorting descending list with quick sort...")
+    start = time.perf_counter()
+    sorted_desc_quick = quick_sort(list_descending)
+    elapsed = time.perf_counter() - start
+    print(f"Elapsed time: {elapsed:.6f} seconds")
+
+    print("Sorting random list with merge sort...")
+    start = time.perf_counter()
+    sorted_rand_merge = merge_sort(list_random)
+    elapsed = time.perf_counter() - start
+    print(f"Elapsed time: {elapsed:.6f} seconds")
+
+    print("Sorting random list with quick sort...")
+    start = time.perf_counter()
+    sorted_rand_quick = quick_sort(list_random)
+    elapsed = time.perf_counter() - start
+    print(f"Elapsed time: {elapsed:.6f} seconds")
